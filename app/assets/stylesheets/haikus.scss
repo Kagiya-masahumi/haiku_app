@@ -1,0 +1,73 @@
+// Place all the styles related to the haikus controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the haikus controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  width: 1200px;
+  display: flex;
+}
+
+.card_wrapper {
+  border:1px solid;
+  width: 80vw;
+  display: flex;
+}
+
+.card {
+  border:1px solid;
+  writing-mode: vertical-rl;
+  margin: 5vh 5vw;
+  position: relative;
+}
+
+.card_naka {
+  margin-top: 5vh;
+}
+
+.card_shimo {
+  margin-top: 20vh;
+}
+
+.card_name {
+  position: absolute;
+  bottom: 5px;  
+}
+
+.side_bar {
+  border:1px solid;
+  width: 30vw;
+}
+
+.top_wrapper {
+  border:1px solid;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.center_wrapper{
+  border:1px solid;
+  writing-mode: vertical-rl;
+  margin: 0 auto;
+}
+
+
+.bottom_wrapper {
+  text-align: center;
+}
+
+.inputfield {
+  width: 6vw;
+  height: 50vh;
+  margin: 1vw;
+}  
+
+.title {
+  writing-mode: vertical-rl;
+  font-size: 5vw;
+}
+

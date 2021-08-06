@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'tweets#index'
-  resources :tweets, only: :index 
+  root to: 'haikus#index'
+  resources :haikus, only: :index
 end
