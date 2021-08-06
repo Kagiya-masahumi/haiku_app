@@ -11,31 +11,31 @@
       </div>      
     </div>
 
-    <div class="center_wrapper">
-      <%= form_with url: "haikus", class: "haiku_form", local: true do |f| %>
-        <div class="field">
-          上の句
-          <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
-        </div>
-        <div class="field">
-          中の句
-          <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
-        </div>
-        <div class="field">
-          下の句
-          <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
-        </div>
-    </div>
+    <%= form_with model: @haiku, class: "haiku_form", local: true do |f| %>
+      <div class="center_wrapper">
+          <div class="field">
+            上の句
+            <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
+          </div>
+          <div class="field">
+            中の句
+            <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
+          </div>
+          <div class="field">
+            下の句
+            <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
+          </div>
+      </div>
 
-    <div class="bottom_wrapper">
-      <div class="field">
-        <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
+      <div class="bottom_wrapper">
+        <div class="field">
+          <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
+        </div>
+        <div class="field">
+          <%= f.submit "投稿", class: "send_btn" %>
+        </div>
       </div>
-      <div class="field">
-         <%= f.submit "投稿", class: "send_btn" %>
-      </div>
-     <% end %>
-    </div>
+    <% end %>
   </div>
   <%# /サイドバー %>
 

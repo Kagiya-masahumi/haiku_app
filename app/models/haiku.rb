@@ -11,4 +11,5 @@ class Haiku < ApplicationRecord
   end
 
   validates :season_id, numericality: { other_than: 0, message: "can't be blank" } 
+
 end
