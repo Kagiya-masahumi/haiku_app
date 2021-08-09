@@ -6,68 +6,128 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-body {
-  width: 1200px;
-  display: flex;
+html {
+  height: 100%;
+  width: 100%;
 }
 
-.card_wrapper {
-  border:1px solid;
-  width: 80vw;
+.body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.makimono {
+  height: 100%;
+  width: 100%;
+  border-top: solid 8vh #738851;
+  border-bottom: solid 8vh #738851;
   display: flex;
+  background-image: url(images/japanese-paper.jpeg);
+}
+
+.title-makimono {
+  width: 8%;
+  border-left: solid 1vw #738851;
+  border-right: solid 1vw #738851;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  writing-mode: vertical-rl;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+
+.card_wrapper {
+  width: 72%;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .card {
-  border:1px solid;
+  border: solid 1px;
   writing-mode: vertical-rl;
-  margin: 5vh 5vw;
+  margin: 2rem 2rem;
+  font-size: 1rem;
   position: relative;
+  background-color: lemonchiffon;
+}
+
+.card_kami {
+  padding-top: 6rem;
+  padding-right: 1rem;
 }
 
 .card_naka {
-  margin-top: 5vh;
+  padding-top: 8rem;
+  padding-right: 1rem;
 }
 
 .card_shimo {
-  margin-top: 20vh;
+  padding-top: 10rem;
+  padding-right: 1rem;
 }
 
 .card_name {
+  padding-top: 25rem;
+}
+
+.card_success {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  background-color: #de3400;
+  border-radius: 30px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
   position: absolute;
-  bottom: 5px;  
+  top: 1rem;
+  left: 0.5rem;
 }
 
 .side_bar {
   border:1px solid;
-  width: 30vw;
+  width: 20%;
+  height: 100%;
 }
 
 .top_wrapper {
   border:1px solid;
-  height: 10vh;
+  height: 3rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .center_wrapper{
   border:1px solid;
   writing-mode: vertical-rl;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
+.field {
+  margin-top: 3rem;
+}
+
+.haiku-post {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
 
 .bottom_wrapper {
   text-align: center;
 }
 
 .inputfield {
-  width: 6vw;
-  height: 50vh;
+  padding-top: 3rem;
+  width: 2rem;
+  height: 18rem;
   margin: 1vw;
 }  
-
-.title {
-  writing-mode: vertical-rl;
-  font-size: 5vw;
-}
 

@@ -1,45 +1,14 @@
 <body>
 
-  <%# サイドバー %>
-  <div class="side_bar">
-    <div class="top_wrapper">
-      <div>
-        <%= button_to "春", {contrller: 'haikus', action: 'index'}, {method: :get} %>  
-      </div>
-      <div>
-        ユーザー
-      </div>      
+<%# 巻物部分 %>
+<div class="makimono">
+  <%# タイトル巻物 %>
+  <div class="title-makimono">
+    <div class="title">
+      みんなのほそ道
     </div>
-
-    <%= form_with model: @haiku, class: "haiku_form", local: true do |f| %>
-      <div class="center_wrapper">
-          <div class="field">
-            上の句
-            <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
-          </div>
-          <div class="field">
-            中の句
-            <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
-          </div>
-          <div class="field">
-            下の句
-            <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
-          </div>
-      </div>
-
-      <div class="bottom_wrapper">
-        <div class="field">
-          <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
-        </div>
-        <div class="field">
-          <%= f.submit "投稿", class: "send_btn" %>
-        </div>
-      </div>
-    <% end %>
   </div>
-  <%# /サイドバー %>
-
-  <%# 投稿（俳句）一覧 %>
+  <%# メイン(投稿一覧)画面 %>
   <div class="card_wrapper">
     <div class="card">
       <div class="card_kami">
@@ -59,11 +28,46 @@
       </div>
     </div>
   </div>
-  <%# /投稿（俳句）一覧 %>
+  <%# サイドバー %>
+  <div class="side_bar">
+    <div class="top_wrapper">
+      <div>
+        <%= button_to "春", {contrller: 'haikus', action: 'index'}, {method: :get} %>  
+      </div>
+      <div>
+        さすらい俳人
+      </div>
+    </div>
 
+    <%= form_with model: @haiku, class: "haiku_form", local: true do |f| %>
+      <div class="center_wrapper">
+        <div class="haiku-post">
+          <span>投稿</span>
+        </div>
+          <div class="field">
+            上の句
+            <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
+          </div>
+          <div class="field">
+            中の句
+            <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
+          </div>
+          <div class="field">
+            下の句
+            <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
+          </div>
+      </div>
 
-  <div class="title">
-    みんなのほそ道
+      <div class="bottom_wrapper">
+      <div class="field-season">
+        <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
+      </div>
+        <div class="field">
+          <%= f.submit "投稿", class: "send_btn" %>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
 </body>
