@@ -15,6 +15,7 @@ html {
   height: 100%;
   width: 100%;
   margin: 0;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN','ＭＳ 明朝', 'MS Mincho',sans-serif;
 }
 
 .makimono {
@@ -23,7 +24,7 @@ html {
   border-top: solid 8vh #738851;
   border-bottom: solid 8vh #738851;
   display: flex;
-  background-image: url(images/japanese-paper.jpeg);
+  background-image: url("../images/japanese-paper.jpeg");
 }
 
 .title-makimono {
@@ -48,13 +49,58 @@ html {
   flex-direction: row-reverse;
 }
 
+.card_wrapper>h2 {
+  margin-top: 2rem;
+  writing-mode: vertical-rl;
+}
+
+.haiku-list {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  overflow: hidden;
+}
+
 .card {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  animation: loop-slide 20s infinite linear 1s both;
+}
+
+@keyframes loop-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.list {
   border: solid 1px;
   writing-mode: vertical-rl;
   margin: 2rem 2rem;
   font-size: 1rem;
   position: relative;
   background-color: lemonchiffon;
+}
+
+.content-hover {
+  transition: all 0.2s;
+}
+
+.slide-paused:hover .card {
+  animation-play-state: paused;
+}
+
+.content-hover:hover {
+  transform: translateY(-20px);
+  border-radius: 0 5%;
+  box-shadow: 0 3px 10px 0 #333;
+  opacity: 0.8;
+  cursor: pointer;
+  animation-play-state: paused;
 }
 
 .card_kami {
@@ -74,6 +120,7 @@ html {
 
 .card_name {
   padding-top: 25rem;
+  padding-left: 0.5rem;
 }
 
 .card_success {
