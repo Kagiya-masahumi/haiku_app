@@ -1,5 +1,151 @@
 <body>
+<%# 巻物部分 %>
+<div class="makimono">
+  <%# タイトル巻物 %>
+  <div class="title-makimono">
+    <div class="title">
+      みんなのほそ道
+    </div>
+  </div>
+  <%# /タイトル巻物 %>
+  <%# メイン(投稿一覧)画面 %>
+  <div class="card_wrapper">
+    <h2>とうこういちらん</h2>
+    <div class="haiku-list slide-paused" ontouchstart="">
+      <% @haikus.each do |haiku| %>
+        <ul class="card">
+         <li class="list content-hover">
+          <div class="card_kami">
+            <%= haiku.kami %>
+          </div>
+          <div class="card_naka">
+            <%= haiku.naka %>
+          </div>
+          <div class="card_shimo">
+            <%= haiku.shimo %>
+          </div>
+          <div class="card_name">
+            <%= haiku.user.name %>
+          </div>
+          <div class="card_success">
+            いいね
+          </div>
+         </li>
+        </ul>
+      <% end %>
+      <% @haikus.each do |haiku| %>
+        <ul class="card">
+         <li class="list content-hover">
+          <div class="card_kami">
+            <%= haiku.kami %>
+          </div>
+          <div class="card_naka">
+            <%= haiku.naka %>
+          </div>
+          <div class="card_shimo">
+            <%= haiku.shimo %>
+          </div>
+          <div class="card_name">
+            <%= haiku.user.name %>
+          </div>
+          <div class="card_success">
+            いいね
+          </div>
+         </li>
+        </ul>
+      <% end %>
+      <% @haikus.each do |haiku| %>
+        <ul class="card">
+         <li class="list content-hover">
+          <div class="card_kami">
+            <%= haiku.kami %>
+          </div>
+          <div class="card_naka">
+            <%= haiku.naka %>
+          </div>
+          <div class="card_shimo">
+            <%= haiku.shimo %>
+          </div>
+          <div class="card_name">
+            <%= haiku.user.name %>
+          </div>
+          <div class="card_success">
+            いいね
+          </div>
+         </li>
+        </ul>
+      <% end %>
+    </div>
 
+    <% unless @haikus.present? %>
+      <div class="haiku-list slide-paused" ontouchstart="">
+        <% 10.times do %>
+          <ul class="card">
+            <li class="list content-hover">
+              <div class="card_kami">
+                夏草や
+              </div>
+              <div class="card_naka">
+                つわものどもが
+              </div>
+              <div class="card_shimo">
+                夢の跡
+              </div>
+              <div class="card_name">
+                松尾芭蕉
+              </div>
+              <div class="card_success">
+                いいね
+              </div>
+            </li>
+          </ul>
+        <% end %>
+        <% 10.times do %>
+          <ul class="card">
+            <li class="list content-hover">
+              <div class="card_kami">
+                夏草や
+              </div>
+              <div class="card_naka">
+                つわものどもが
+              </div>
+              <div class="card_shimo">
+                夢の跡
+              </div>
+              <div class="card_name">
+                松尾芭蕉
+              </div>
+              <div class="card_success">
+                いいね
+              </div>
+            </li>
+          </ul>
+        <% end %>
+        <% 10.times do %>
+          <ul class="card">
+            <li class="list content-hover">
+              <div class="card_kami">
+                夏草や
+              </div>
+              <div class="card_naka">
+                つわものどもが
+              </div>
+              <div class="card_shimo">
+                夢の跡
+              </div>
+              <div class="card_name">
+                松尾芭蕉
+              </div>
+              <div class="card_success">
+                いいね
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%# /メイン(投稿一覧)画面 %>
   <%# サイドバー %>
   <div class="side_bar">
     <div class="top_wrapper">
@@ -7,30 +153,33 @@
         <%= button_to "春", {contrller: 'haikus', action: 'index'}, {method: :get} %>  
       </div>
       <div>
-        ユーザー
-      </div>      
+        さすらい俳人
+      </div>
     </div>
 
-    <%= form_with model: @haiku, class: "haiku_form", local: true do |f| %>
+    <%= form_with model: @haiku, local: true do |f| %>
       <div class="center_wrapper">
-          <div class="field">
-            上の句
-            <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
-          </div>
-          <div class="field">
-            中の句
-            <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
-          </div>
-          <div class="field">
-            下の句
-            <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
-          </div>
+        <div class="haiku-post">
+          <span>ここで一句</span>
+        </div>
+        <div class="field">
+          上の句
+          <%= f.text_area :kami, class: "inputfield inputfield_kami" %>
+        </div>
+        <div class="field">
+          中の句
+          <%= f.text_area :naka, class: "inputfield inputfield_naka" %>
+        </div>
+        <div class="field">
+          下の句
+          <%= f.text_area :shimo, class: "inputfield inputfield_shimo" %>
+        </div>
       </div>
 
       <div class="bottom_wrapper">
-        <div class="field">
-          <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
-        </div>
+      <div class="field-season">
+        <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
+      </div>
         <div class="field">
           <%= f.submit "投稿", class: "send_btn" %>
         </div>
@@ -38,32 +187,6 @@
     <% end %>
   </div>
   <%# /サイドバー %>
-
-  <%# 投稿（俳句）一覧 %>
-  <div class="card_wrapper">
-    <div class="card">
-      <div class="card_kami">
-        夏草や
-      </div>
-      <div class="card_naka">
-        つわものどもが
-      </div>
-      <div class="card_shimo">
-        夢の跡
-      </div>
-      <div class="card_name">
-        松尾芭蕉
-      </div>
-      <div class="card_success">
-        いいね
-      </div>
-    </div>
-  </div>
-  <%# /投稿（俳句）一覧 %>
-
-
-  <div class="title">
-    みんなのほそ道
-  </div>
-
+</div>
+<%# /巻物部分 %>
 </body>
