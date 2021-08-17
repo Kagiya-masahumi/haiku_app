@@ -1,7 +1,8 @@
 class HaikusController < ApplicationController
 
   def index
-    @haikus = Haiku.all
+    @haikus = Haiku.includes(:user)
+    binding.pry
     @haiku = Haiku.new
   end
 
