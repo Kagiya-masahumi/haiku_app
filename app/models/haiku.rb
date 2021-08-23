@@ -12,4 +12,7 @@ class Haiku < ApplicationRecord
 
   validates :season_id, numericality: { other_than: 0, message: "can't be blank" } 
 
+  def self.season_search(season_id)
+      Haiku.where(season_id: season_id)
+  end
 end

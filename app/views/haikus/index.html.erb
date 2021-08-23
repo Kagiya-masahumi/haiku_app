@@ -25,7 +25,11 @@
   <div class="side_bar">
     <div class="top_wrapper">
       <div>
-        <%= button_to "春", {contrller: 'haikus', action: 'index'}, {method: :get} %>  
+        <%= link_to "春", season_search_haikus_path(season_id: 1) %>
+        <%= link_to "夏", season_search_haikus_path(season_id: 2) %>  
+        <%= link_to "秋", season_search_haikus_path(season_id: 3) %>  
+        <%= link_to "冬", season_search_haikus_path(season_id: 4) %> 
+        <%= link_to "全て", root_path %>  
       </div>
       <div>
         さすらい俳人

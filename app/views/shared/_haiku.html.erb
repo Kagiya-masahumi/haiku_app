@@ -1,4 +1,12 @@
-<li class="list content-hover spring_card_background ">
+<% if haiku.season_id == 1 %>
+  <li class="list content-hover spring_card_background">
+<% elsif haiku.season_id == 2 %>
+  <li class="list content-hover summer_card_background">
+<% elsif haiku.season_id == 3 %>
+  <li class="list content-hover autumn_card_background">
+<% else %>
+  <li class="list content-hover winter_card_background">
+<% end %>
   <%= haiku.id %>
   <div class="card_kami">
     <%= haiku.kami %>

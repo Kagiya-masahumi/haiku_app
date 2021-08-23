@@ -14,6 +14,11 @@ class HaikusController < ApplicationController
     end
   end
 
+  def season_search
+    @haikus = Haiku.where(season_id: params[:season_id])
+    render :index
+  end
+
   private
 
   def haiku_params
