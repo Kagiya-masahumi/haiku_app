@@ -2,7 +2,6 @@ class HaikusController < ApplicationController
 
   def index
     @haikus = Haiku.includes(:user)
-    binding.pry
     @haiku = Haiku.new
   end
 
@@ -18,7 +17,11 @@ class HaikusController < ApplicationController
   private
 
   def haiku_params
-    params.require(:haiku).permit(:kami, :naka, :shimo, :season_id)
+    if params[:haiku][:user_id].nil?
+      params.require(:haiku).permit(:kami, :shimo, :naka, :season_id)
+    else
+      params.require(:haiku).permit(:kami, :shimo, :naka, :season_id).merge(user_id: current_user.id)
+    end
   end
 
 end 

@@ -1,24 +1,23 @@
-<ul class="card">
-  <li class="list content-hover">
-    <div class="card_kami">
-      <%= haiku.kami %>
-    </div>
-    <div class="card_naka">
-      <%= haiku.naka %>
-    </div>
-    <div class="card_shimo">
-      <%= haiku.shimo %>
-    </div>
-    <div class="card_name">
-      <% if haiku.user_id.nil? %>
-        読み人知らず
-      <% else %>
-        <%= haiku.user.name %>
-      <% end %>
-    </div>
-    <div class="card_success">
-      いいね
-    </div>
-    <%= hidden_field_tag :season_id, haiku.season_id, id: "season_id" %>
-  </li>
-</ul>
+<li class="list content-hover">
+  <%= haiku.id %>
+  <div class="card_kami">
+    <%= haiku.kami %>
+  </div>
+  <div class="card_naka">
+    <%= haiku.naka %>
+  </div>
+  <div class="card_shimo">
+    <%= haiku.shimo %>
+  </div>
+  <div class="card_name">
+    <% if haiku.user_id.nil? %>
+      読み人知らず
+    <% else %>
+      <%= haiku.user.name %>
+    <% end %>
+  </div>
+  <div class="card_success">
+    いいね
+  </div>
+  <%= hidden_field_tag :season_id, haiku.season_id, id: "season_id" %>
+</li>

@@ -1,5 +1,5 @@
 class Haiku < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true # optional: true → null登録を許容する
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :season

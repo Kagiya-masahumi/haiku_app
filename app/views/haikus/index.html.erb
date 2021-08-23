@@ -12,7 +12,12 @@
   <div class="card_wrapper">
     <h2>とうこういちらん</h2>
     <div class="haiku-list slide-paused" ontouchstart="">
-      <%= render partial: 'shared/haiku', collection: @haikus %>
+      <ul class="card">
+        <%= render partial: 'shared/haiku', collection: @haikus %>
+      </ul>
+      <ul class="card">
+        <%= render partial: 'shared/haiku', collection: @haikus %>
+      </ul>
     </div>
   </div>
   <%# /メイン(投稿一覧)画面 %>

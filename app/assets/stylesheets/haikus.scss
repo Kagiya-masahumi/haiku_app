@@ -64,9 +64,9 @@ html {
 .card {
   list-style: none;
   display: flex;
-  width: 100%;
   animation: loop-slide 20s infinite linear 1s both;
 }
+
 
 @keyframes loop-slide {
   from {
@@ -77,6 +77,7 @@ html {
   }
 }
 
+
 .list {
   border: solid 1px;
   writing-mode: vertical-rl;
@@ -85,6 +86,8 @@ html {
   position: relative;
   background-color: lemonchiffon;
 }
+
+
 
 .content-hover {
   transition: all 0.2s;
