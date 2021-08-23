@@ -1,7 +1,7 @@
 class HaikusController < ApplicationController
 
   def index
-    @haikus = Haiku.all
+    @haikus = Haiku.includes(:user)
     @haiku = Haiku.new
   end
 
@@ -14,10 +14,19 @@ class HaikusController < ApplicationController
     end
   end
 
+  def season_search
+    @haikus = Haiku.where(season_id: params[:season_id])
+    render :index
+  end
+
   private
 
   def haiku_params
-    params.require(:haiku).permit(:kami, :naka, :shimo, :season_id)
+    if params[:haiku][:user_id].nil?
+      params.require(:haiku).permit(:kami, :shimo, :naka, :season_id)
+    else
+      params.require(:haiku).permit(:kami, :shimo, :naka, :season_id).merge(user_id: current_user.id)
+    end
   end
 
 end 

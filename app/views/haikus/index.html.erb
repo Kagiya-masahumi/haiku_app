@@ -12,145 +12,24 @@
   <div class="card_wrapper">
     <h2>とうこういちらん</h2>
     <div class="haiku-list slide-paused" ontouchstart="">
-      <% @haikus.each do |haiku| %>
-        <ul class="card">
-         <li class="list content-hover">
-          <div class="card_kami">
-            <%= haiku.kami %>
-          </div>
-          <div class="card_naka">
-            <%= haiku.naka %>
-          </div>
-          <div class="card_shimo">
-            <%= haiku.shimo %>
-          </div>
-          <div class="card_name">
-            <%= haiku.user.name %>
-          </div>
-          <div class="card_success">
-            いいね
-          </div>
-         </li>
-        </ul>
-      <% end %>
-      <% @haikus.each do |haiku| %>
-        <ul class="card">
-         <li class="list content-hover">
-          <div class="card_kami">
-            <%= haiku.kami %>
-          </div>
-          <div class="card_naka">
-            <%= haiku.naka %>
-          </div>
-          <div class="card_shimo">
-            <%= haiku.shimo %>
-          </div>
-          <div class="card_name">
-            <%= haiku.user.name %>
-          </div>
-          <div class="card_success">
-            いいね
-          </div>
-         </li>
-        </ul>
-      <% end %>
-      <% @haikus.each do |haiku| %>
-        <ul class="card">
-         <li class="list content-hover">
-          <div class="card_kami">
-            <%= haiku.kami %>
-          </div>
-          <div class="card_naka">
-            <%= haiku.naka %>
-          </div>
-          <div class="card_shimo">
-            <%= haiku.shimo %>
-          </div>
-          <div class="card_name">
-            <%= haiku.user.name %>
-          </div>
-          <div class="card_success">
-            いいね
-          </div>
-         </li>
-        </ul>
-      <% end %>
+      <ul class="card">
+        <%= render partial: 'shared/haiku', collection: @haikus %>
+      </ul>
+      <ul class="card">
+        <%= render partial: 'shared/haiku', collection: @haikus %>
+      </ul>
     </div>
-
-    <% unless @haikus.present? %>
-      <div class="haiku-list slide-paused" ontouchstart="">
-        <% 10.times do %>
-          <ul class="card">
-            <li class="list content-hover">
-              <div class="card_kami">
-                夏草や
-              </div>
-              <div class="card_naka">
-                つわものどもが
-              </div>
-              <div class="card_shimo">
-                夢の跡
-              </div>
-              <div class="card_name">
-                松尾芭蕉
-              </div>
-              <div class="card_success">
-                いいね
-              </div>
-            </li>
-          </ul>
-        <% end %>
-        <% 10.times do %>
-          <ul class="card">
-            <li class="list content-hover">
-              <div class="card_kami">
-                夏草や
-              </div>
-              <div class="card_naka">
-                つわものどもが
-              </div>
-              <div class="card_shimo">
-                夢の跡
-              </div>
-              <div class="card_name">
-                松尾芭蕉
-              </div>
-              <div class="card_success">
-                いいね
-              </div>
-            </li>
-          </ul>
-        <% end %>
-        <% 10.times do %>
-          <ul class="card">
-            <li class="list content-hover">
-              <div class="card_kami">
-                夏草や
-              </div>
-              <div class="card_naka">
-                つわものどもが
-              </div>
-              <div class="card_shimo">
-                夢の跡
-              </div>
-              <div class="card_name">
-                松尾芭蕉
-              </div>
-              <div class="card_success">
-                いいね
-              </div>
-            </li>
-          </ul>
-        <% end %>
-      </div>
-    <% end %>
   </div>
   <%# /メイン(投稿一覧)画面 %>
   <%# サイドバー %>
   <div class="side_bar">
     <div class="top_wrapper">
       <div>
-        <%= button_to "春", {contrller: 'haikus', action: 'index'}, {method: :get} %>  
+        <%= link_to "春", season_search_haikus_path(season_id: 1) %>
+        <%= link_to "夏", season_search_haikus_path(season_id: 2) %>  
+        <%= link_to "秋", season_search_haikus_path(season_id: 3) %>  
+        <%= link_to "冬", season_search_haikus_path(season_id: 4) %> 
+        <%= link_to "全て", root_path %>  
       </div>
       <div>
         さすらい俳人
