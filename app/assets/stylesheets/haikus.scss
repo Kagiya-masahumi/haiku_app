@@ -79,12 +79,15 @@ html {
 
 
 .list {
-  border: solid 1px;
+  border: solid 3px;
+  border-image-source: image-url("card_flame.png");
+  border-image-slice: 33%;
+  border-image-repeat: repeat;
+	border-image-width: 3px;
   writing-mode: vertical-rl;
   margin: 2rem 2rem;
   font-size: 1rem;
   position: relative;
-  background-color: lemonchiffon;
 }
 
 
@@ -180,4 +183,24 @@ html {
   height: 18rem;
   margin: 1vw;
 }  
+
+.spring_card_background {
+  background: image-url("spring_card_img.png") right 10% bottom 0% / 70% auto no-repeat,
+  image-url("japanese_paper.jpg") left top / 100% auto repeat;
+}
+
+.summer_card_background {
+  background: image-url("summer_card_img.png") right 10% bottom 0% / 70% auto no-repeat,
+  image-url("japanese_paper.jpg") left top / 100% auto repeat;
+}
+
+.autumn_card_background {
+  background: image-url("autumn_card_img.png") right 10% bottom 0% / 70% auto no-repeat,
+  image-url("japanese_paper.jpg") left top / 100% auto repeat;
+}
+
+.winter_card_background {
+  background: image-url("winter_card_img.png") right 10% bottom 0% / 70% auto no-repeat,
+  image-url("japanese_paper.jpg") left top / 100% auto repeat;
+}
 
