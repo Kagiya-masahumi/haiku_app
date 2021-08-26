@@ -14,13 +14,12 @@ html {
 .body {
   height: 100%;
   width: 100%;
-  margin: 0;
   font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN','ＭＳ 明朝', 'MS Mincho',sans-serif;
 }
 
 .makimono {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   border-top: solid 8vh #738851;
   border-bottom: solid 8vh #738851;
   display: flex;
@@ -44,7 +43,7 @@ html {
 
 
 .card_wrapper {
-  width: 72%;
+  width: 72vw;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -145,8 +144,8 @@ html {
 
 .side_bar {
   border:1px solid;
-  width: 20%;
-  height: 100%;
+  width: 20vw;
+  height: 84vh;
 }
 
 .top_wrapper {
@@ -203,4 +202,3 @@ html {
   background: image-url("winter_card_img.png") right 120% bottom -15% / 120% auto no-repeat,
   image-url("japanese_paper.jpg") left top / 100% auto repeat;
 }
-
