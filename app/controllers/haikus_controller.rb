@@ -6,6 +6,7 @@ class HaikusController < ApplicationController
   end
 
   def create
+    
     @haiku = Haiku.new(haiku_params)
     if @haiku.save
       redirect_to root_path
