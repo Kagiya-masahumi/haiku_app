@@ -15,6 +15,7 @@ class HaikusController < ApplicationController
   end
 
   def show
+    @haiku = Haiku.where(user_id: current_user.id)
   end
 
   def season_search
@@ -25,7 +26,7 @@ class HaikusController < ApplicationController
   private
 
   def haiku_params
-    if params[:haiku][:user_id].nil?
+    if current_user.nil?
       params.require(:haiku).permit(:kami, :shimo, :naka, :season_id)
     else
       params.require(:haiku).permit(:kami, :shimo, :naka, :season_id).merge(user_id: current_user.id)
