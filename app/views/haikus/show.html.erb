@@ -1,0 +1,16 @@
+<div class="mypage-content">
+
+  <div class="my-name">
+    <h2><%= current_user.name %>さんのマイページ</h2>
+  </div>
+
+  <div class="my-post">
+    <% @haiku.each do |h| %>
+      <%= h.kami %>
+      <%= h.naka %>
+      <%= h.shimo %>
+      <%= h.season.name%>
+    <% end %>
+  </div>
+
+</div>
