@@ -1,9 +1,12 @@
 <div class="mypage-content">
 
+  <%# 名前表示 %>
   <div class="my-name">
     <h2><%= current_user.name %>さんのマイページ</h2>
   </div>
+  <%# /名前表示 %>
 
+  <%# 自分の投稿作品一覧 %>
   <div class="my-post">
     <% @haiku.each do |h| %>
       <%= h.kami %>
@@ -12,5 +15,6 @@
       <%= h.season.name%>
     <% end %>
   </div>
+  <%# /自分の投稿作品一覧 %>
 
 </div>
