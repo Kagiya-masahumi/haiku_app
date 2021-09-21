@@ -1,16 +1,21 @@
-<div class="mypage-content">
+<div class="makimono">
 
-  <div class="my-name">
-    <h2><%= current_user.name %>さんのマイページ</h2>
+  <%# 名前表示 %>
+  <div class="title-makimono">
+    <div class="title">
+      <%= current_user.name %>さん
+    </div>
   </div>
+  <%# /名前表示 %>
 
-  <div class="my-post">
-    <% @haiku.each do |h| %>
-      <%= h.kami %>
-      <%= h.naka %>
-      <%= h.shimo %>
-      <%= h.season.name%>
+  <%# 自分の投稿作品一覧 %>
+  <div class="haiku-list slide-paused" ontouchstart="">>
+    <% @haiku.each do %>
+      <ul class="card">
+        <%= render partial: 'shared/haiku', collection: @haiku %>
+      </ul>
     <% end %>
   </div>
+  <%# /自分の投稿作品一覧 %>
 
 </div>
