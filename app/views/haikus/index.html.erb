@@ -1,3 +1,4 @@
+
 <body>
 <%# 読み込みアニメ %>
 <div id="splash">
@@ -5,6 +6,49 @@
 </div>
 <div class="splashbg"></div>
 <%# /読み込みアニメ %>
+
+<%# モーダル %>
+<div class="signup-modal-wrapper" id="signup-open">
+  <!-- 新規登録用のモーダル -->
+
+  <div class="modal" id="signup-modal">
+
+    <%# 『閉じる』ボタン %>
+    <div class="close-modal ">
+      <i class="far fa-times-circle close-btn"></i>
+    </div>
+
+    <div id="signup-form">
+      <h2>Emailで新規登録</h2>
+      <form action="#">
+        <input class="form-control" type="text" placeholder="メールアドレス">
+        <input class="form-control" type="password" placeholder="パスワード">
+        
+        <div id="submit-btn">新規登録</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="login-modal-wrapper" id="login-open">
+<!-- ログイン用のモーダル -->
+  <div class="modal" id="login-modal">
+
+    <%# 『閉じる』ボタン %>
+    <div class="close-modal">
+      <i class="far fa-times-circle close-btn"></i>
+    </div>
+
+    <div id="login-form">
+      <h2>Emailログイン</h2>
+      <form action="#">
+        <input class="form-control" type="text" placeholder="メールアドレス">
+        <input class="form-control" type="password" placeholder="パスワード">
+        <div id="submit-btn">ログイン</div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div id="container"><%# 画面遷移用 %>
   <%# 巻物部分 %>
@@ -52,8 +96,8 @@
             <%= link_to current_user.name, haiku_path(current_user.id) %>
             <%= link_to "ろぐあうと", destroy_user_session_path, method: :delete %>
           <% else %>
-            <%= link_to "ろぐいん",  new_user_session_path %>
-            <%= link_to 'しんきとうろく', new_user_registration_path %>
+            <div class="btn" id="login-show">ろぐいん</div>
+            <div class="btn signup signup-show" >しんきとうろく</div>
           <% end %>
         </div>
       </div>
@@ -93,4 +137,5 @@
 </div>
 
 <script src="../javascript/load_anime.js"></script>
+<script src="../javascript/modal_script.js"></script>
 </body>
