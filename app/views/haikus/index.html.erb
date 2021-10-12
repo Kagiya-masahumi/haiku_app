@@ -20,12 +20,44 @@
 
     <div id="signup-form">
       <h2>Emailで新規登録</h2>
-      <form action="#">
+      <%# <form action="#">
         <input class="form-control" type="text" placeholder="メールアドレス">
         <input class="form-control" type="password" placeholder="パスワード">
         
         <div id="submit-btn">新規登録</div>
-      </form>
+      </form> %>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :name, "名前" %><br />
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録" %>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -41,11 +73,34 @@
 
     <div id="login-form">
       <h2>Emailログイン</h2>
-      <form action="#">
+
+      <%# <form action="#">
         <input class="form-control" type="text" placeholder="メールアドレス">
         <input class="form-control" type="password" placeholder="パスワード">
         <div id="submit-btn">ログイン</div>
-      </form>
+      </form> %>
+      <%=  form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-control">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="form-control">
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.label :remember_me %><br />
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end -%>
+
+        <div class="actions" >
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
