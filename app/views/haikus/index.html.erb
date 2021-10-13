@@ -15,7 +15,7 @@
 
     <%# 『閉じる』ボタン %>
     <div class="close-modal ">
-      <i class="far fa-times-circle close-btn"></i>
+      <i class="far fa-times-circle fa-lg close-btn"></i>
     </div>
 
     <div id="signup-form">
@@ -53,9 +53,12 @@
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "新規登録" %>
+        <div class="submit-btn-wrapper">
+          <div class="actions" id="submit-btn">
+            <%= f.submit "新規登録" %>
+          </div>
         </div>
+        
       <% end %>
       </div>
     </div>
@@ -68,7 +71,7 @@
 
     <%# 『閉じる』ボタン %>
     <div class="close-modal">
-      <i class="far fa-times-circle close-btn"></i>
+      <i class="far fa-times-circle fa-lg close-btn"></i>
     </div>
 
     <div id="login-form">
@@ -80,12 +83,12 @@
         <div id="submit-btn">ログイン</div>
       </form> %>
       <%=  form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-control">
+        <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
 
-        <div class="form-control">
+        <div class="field">
           <%= f.label :password, "パスワード" %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
@@ -97,9 +100,12 @@
           </div>
         <% end -%>
 
-        <div class="actions" >
-          <%= f.submit "ログイン" %>
+        <div class="submit-btn-wrapper">
+          <div class="actions" id="submit-btn">
+            <%= f.submit "ログイン" %>
+          </div>
         </div>
+        
       <% end %>
     </div>
   </div>

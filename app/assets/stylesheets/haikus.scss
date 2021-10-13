@@ -37,7 +37,7 @@ html {
   background-color: #e6ecf0;
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: 450px;
+  
   height: auto;
   text-align: center;
 
@@ -63,22 +63,25 @@ html {
 
 #signup-form input, #login-form input {
   width: 320px;
-  margin-bottom: 20px;
   font-size: 12px;
   padding: 12px 12px;
   border: 1px solid #d0d5d8;
   border-radius: 5px;
 }
+.submit-btn-wrapper{
+  margin: 44px 140px ;
+}
 
 #submit-btn {
   display: inline-block;
-  padding: 14px 140px;
+
   background-color: #5dca88;
   border: none;
   border-radius: 3px;
   color: white;
   margin: 10px auto;
   cursor: pointer;
+  border-radius:30px;
 }
 
 
@@ -86,7 +89,7 @@ html {
 .close-btn{
   display: inline-block;
   justify-content: right;
-  margin: 10px 0 0 350px;
+  margin: 5% 0 0 80%;
   cursor: pointer
 }
 
