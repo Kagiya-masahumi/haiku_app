@@ -10,6 +10,15 @@ require("channels")
 require('jquery')
 
 require('../load_anime')
+require('../modal_scr')
+
+
+//= require jquery #追加
+//= require jquery_ujs #追加
+//= require jquery.validationEngine-zh_CN
+//= require jquery.validationEngine
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,4 +1,6 @@
+
 <body>
+
 <%# 読み込みアニメ %>
 <div id="splash">
   <div id="splash-logo">みんなの細道</div>
@@ -6,36 +8,135 @@
 <div class="splashbg"></div>
 <%# /読み込みアニメ %>
 
+<%# モーダル %>
+<div class="signup-modal-wrapper" id="signup-open">
+  <!-- 新規登録用のモーダル -->
+
+  <div class="modal" id="signup-modal">
+
+    <%# 『閉じる』ボタン %>
+    <div class="close-modal ">
+      <i class="far fa-times-circle fa-lg close-btn"></i>
+    </div>
+
+    <div id="signup-form">
+      <h2>Emailで新規登録</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name) ) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :name, "名前"  %>
+          <%= f.label :notion, "※必須項目です",class: "regist_notion"  %><br />
+          <%= f.text_field :name ,class:"validate[required]" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.label :notion, "※必須項目です",class: "regist_notion"  %><br />
+          <%= f.email_field :email , class: " validate[required, custom[email]]" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード" %>
+          <%= f.label :notion, "※必須項目です",class: "regist_notion"  %><br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" , class: " validate[required, minSize[6]]", id: "passwd"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %>
+          <%= f.label :notion, "※必須項目です",class: "regist_notion"  %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" , class: "validate[required, equals[passwd]]"%>
+        </div>
+
+        <div class="submit-btn-wrapper">
+          <div class="actions" id="submit-btn">
+            <%= f.submit "新規登録" %>
+          </div>
+        </div>
+        
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="login-modal-wrapper" id="login-open">
+<!-- ログイン用のモーダル -->
+  <div class="modal" id="login-modal">
+
+    <%# 『閉じる』ボタン %>
+    <div class="close-modal">
+      <i class="far fa-times-circle fa-lg close-btn"></i>
+    </div>
+
+    <div id="login-form">
+      <h2>Emailログイン</h2>
+
+
+      <%=  form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true ,class:"custom[email]" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "off" ,class:"validate[required]"%>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.label :remember_me %><br />
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end -%>
+
+        <div class="submit-btn-wrapper">
+          <div class="actions" id="submit-btn">
+            <%= f.submit "ログイン" %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div id="container"><%# 画面遷移用 %>
   <%# 巻物部分 %>
   <div class="makimono">
+  
     <%# タイトル巻物 %>
     <div class="title-makimono">
       <div class="title">
         みんなのほそ道
       </div>
     </div>
+
     <%# /タイトル巻物 %>
     <%# メイン(投稿一覧)画面 %>
     <div class="card_wrapper">
       <h2>とうこういちらん</h2>
       <div class="haiku-list slide-paused" ontouchstart="">
-
-      <% if @haikus.length < 6%>
-        <ul class="card">
-          <%= render partial: 'shared/haiku', collection: @haikus %>
-        </ul>
-      <% else %>
-        <ul class="card">
-          <%= render partial: 'shared/haiku', collection: @haikus %>
-        </ul>
-        <ul class="card">
-          <%= render partial: 'shared/haiku', collection: @haikus %>
-        </ul>
-      <% end %>
-
+        <% if @haikus.length < 6%>
+          <ul class="card">
+            <%= render partial: 'shared/haiku', collection: @haikus %>
+          </ul>
+        <% else %>
+          <ul class="card">
+            <%= render partial: 'shared/haiku', collection: @haikus %>
+          </ul>
+          <ul class="card">
+            <%= render partial: 'shared/haiku', collection: @haikus %>
+          </ul>
+        <% end %>
       </div>
     </div>
+
     <%# /メイン(投稿一覧)画面 %>
     <%# サイドバー %>
     <div class="side_bar">
@@ -52,8 +153,8 @@
             <%= link_to current_user.name, haiku_path(current_user.id) %>
             <%= link_to "ろぐあうと", destroy_user_session_path, method: :delete %>
           <% else %>
-            <%= link_to "ろぐいん",  new_user_session_path %>
-            <%= link_to 'しんきとうろく', new_user_registration_path %>
+            <div class="btn" id="login-show">ろぐいん</div>
+            <div class="btn signup signup-show" >しんきとうろく</div>
           <% end %>
         </div>
       </div>
@@ -78,9 +179,9 @@
         </div>
 
         <div class="bottom_wrapper">
-        <div class="field-season">
-          <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
-        </div>
+          <div class="field-season">
+            <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"season-select"}) %>
+          </div>
           <div class="field">
             <%= f.submit "投稿", class: "send_btn" %>
           </div>
@@ -92,5 +193,8 @@
   <%# /巻物部分 %>
 </div>
 
-<script src="../javascript/load_anime.js"></script>
+
+
+
+
 </body>
