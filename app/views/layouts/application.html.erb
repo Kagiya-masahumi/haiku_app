@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pictweet</title>
+    <meta charset="UTF-8" />
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+ <%# <!-- jQuery-validate-engin-railsの読み込み -->
+    <script type="text/javascript">
+      jQuery(document).ready(function($){
+          jQuery("#validate_id").validationEngine();
+      });
+    </script>
+
+
+    <!-- jQuery-validate-engin-railsの読み込み ここまで--> %>
+
+    <title>みんなの細道</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- FontAwesomeの読み込み -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> 
-
+    <!-- FontAwesomeここまで -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
+    
+
   </head>
 
   <body>
@@ -19,5 +34,8 @@
     <%= yield %>
     <footer>
     </footer>
+    <script src="../javascript/modal_scr.js"></script>
+    <script src="../javascript/load_anime.js"></script>
+    
   </body>
 </html>
